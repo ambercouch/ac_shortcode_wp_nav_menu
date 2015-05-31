@@ -31,7 +31,8 @@
 defined( 'ABSPATH' ) or die( 'You do not have the required permissions' );
 
 function ac_shortcode_wp_nav_menu($atts, $content = null) {
-    extract(shortcode_atts(array('name' => null,), $atts));
+    extract(shortcode_atts(array('name' => null), $atts));
+    $name = isset($name)? $name : $atts[0];
     return wp_nav_menu(array('menu' => $name, 'echo' => false));
 }
 
